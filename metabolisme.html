@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Metabolisme - LexiFlash</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+      background-color: #c1ebf2;
+    }
+
+    aside {
+      width: 240px;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 16px;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+      font-size: 13px;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+
+    .menu-item:hover {
+      background-color: #f1f1f1;
+    }
+
+    .menu-item img {
+      width: 18px;
+      height: 18px;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    header {
+      background-color: #4dadf7;
+      border-radius: 14px;
+      margin-bottom: 20px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      gap: 10px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+    }
+
+    .controls select, .controls input {
+      padding: 6px 12px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    .section {
+      background-color: #9ef0c4;
+      margin-bottom: 16px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      font-size: 20px;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .sub-card {
+      background-color: white;
+      margin: 12px 20px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      font-size: 18px;
+      font-weight: 500;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .sub-card:hover {
+      background-color: #f1f1f1;
+      cursor: pointer;
+    }
+
+    .menu-icon {
+      cursor: pointer;
+      font-size: 20px;
+      padding: 4px;
+      user-select: none;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 50px;
+      right: 16px;
+      background-color: white;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      padding: 10px;
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 10;
+      width: 130px;
+    }
+
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      transition: background-color 0.2s ease;
+    }
+
+    .dropdown-item:hover {
+      background-color: #f1f1f1;
+      cursor: pointer;
+    }
+
+    .dropdown-item img {
+      width: 18px;
+      height: 18px;
+    }
+
+    .popup-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.3);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 99;
+    }
+
+    .popup-box {
+      background-color: white;
+      padding: 24px 32px;
+      border-radius: 16px;
+      text-align: center;
+      font-size: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      border: 2px solid black;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .popup-actions {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .popup-actions button {
+      padding: 8px 16px;
+      border: none;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: transparent;
+    }
+
+    .popup-actions .hapus {
+      color: red;
+      font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .chatgpt-box {
+      background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      color: #fff;
+      font-size: 12px;
+      margin-top: 12px;
+    }
+
+    .chatgpt-box button {
+      margin-top: 10px;
+      background-color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      color: #007aff;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <div>
+      <div class="menu-item"><img src="https://img.icons8.com/ios-filled/50/user.png"/> sandra.d</div>
+      <div class="menu-item"><img src="https://img.icons8.com/ios-filled/50/home.png"/> Home</div>
+      <div class="menu-item"><img src="https://img.icons8.com/ios-filled/50/classroom.png"/> My Course</div>
+      <div class="menu-item"><img src="https://img.icons8.com/ios-filled/50/settings.png"/> Settings</div>
+    </div>
+    <div>
+      <div class="menu-item">💡 Fitur Pro</div>
+      <div class="menu-item">🔗 ChatGPT AI</div>
+    </div>
+    <div class="chatgpt-box">
+      <strong>ChatGPT</strong>
+      <p>Find more using ChatGPT AI</p>
+      <button>Click Here</button>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <h1>🧠 LexiFlash</h1>
+      <div class="controls">
+        <select><option>Top</option></select>
+        <select><option>Category</option></select>
+        <input type="text" placeholder="Search" />
+      </div>
+    </header>
+
+    <div class="section">Pengertian Metabolisme <span>⋮</span></div>
+    <div class="sub-card">Ringkasan Metabolisme <span>⋮</span></div>
+    <div class="sub-card">Latihan <span>⋮</span></div>
+
+    <div id="enzimSection">
+      <div class="section">
+        Enzim <span class="menu-icon" onclick="toggleMenu(event)">⋮</span>
+        <div class="dropdown-menu" id="dropdownMenu">
+          <div class="dropdown-item"><img src="https://img.icons8.com/ios/20/pencil--v1.png"/> Edit</div>
+          <div class="dropdown-item" onclick="openPopup()"><img src="https://img.icons8.com/ios/20/trash--v1.png"/> Hapus</div>
+        </div>
+      </div>
+      <div class="sub-card">Apa itu Enzim dan Jenisnya? <span>⋮</span></div>
+      <div class="sub-card">Latihan <span>⋮</span></div>
+    </div>
+
+    <div class="section">Katabolisme <span>⋮</span></div>
+    <div class="sub-card">Pengertian Katabolisme <span>⋮</span></div>
+    <div class="sub-card">Latihan <span>⋮</span></div>
+  </main>
+
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup-box">
+      <p>Apakah Anda yakin ingin menghapus materi ini?</p>
+      <div class="popup-actions">
+        <button onclick="closePopup()">Tidak</button>
+        <button class="hapus" onclick="confirmHapus()">Hapus</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu(event) {
+      event.stopPropagation();
+      const menu = document.getElementById("dropdownMenu");
+      const isVisible = menu.style.display === "flex";
+      document.querySelectorAll('.dropdown-menu').forEach(m => m.style.display = 'none');
+      menu.style.display = isVisible ? "none" : "flex";
+    }
+
+    document.addEventListener("click", function() {
+      document.getElementById("dropdownMenu").style.display = "none";
+    });
+
+    function openPopup() {
+      document.getElementById("popupOverlay").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popupOverlay").style.display = "none";
+    }
+
+    function confirmHapus() {
+      const section = document.getElementById("enzimSection");
+      section.remove();
+      closePopup();
+    }
+  </script>
+</body>
+</html>

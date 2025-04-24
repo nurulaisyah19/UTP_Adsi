@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Biologi - LexiFlash</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+      background-color: #c1ebf2;
+    }
+
+    aside {
+      width: 240px;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 16px;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+      font-size: 13px;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+
+    .menu-item:hover {
+      background-color: #f1f1f1;
+    }
+
+    .menu-item img {
+      width: 18px;
+      height: 18px;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .header-box {
+      background-color: #4dadf7;
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .header-box h1 {
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .course-list {
+      flex: 2;
+    }
+
+    .card-materi {
+      background-color: #9ef0c4;
+      padding: 14px;
+      border-radius: 14px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .profile-box {
+      background-color: #6ec9d2;
+      padding: 20px;
+      border-radius: 14px;
+      flex: 1;
+    }
+
+    .profile-box img {
+      border-radius: 50%;
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 10px;
+    }
+
+    .profile-box input[type="file"] {
+      margin: 0 auto 10px;
+      display: block;
+      font-size: 12px;
+    }
+
+    .profile-box input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 14px;
+    }
+
+    .chatgpt-box {
+      background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      color: #fff;
+      font-size: 12px;
+    }
+
+    .chatgpt-box button {
+      margin-top: 10px;
+      background-color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      color: #007aff;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <div>
+      <div class="menu-item"><img src="https://img.icons8.com/ios-filled/50/user.png"/> sandra.d</div>
+      <div class="menu-item"><img src="https://img.icons8.com/ios-filled/50/home.png"/> Home</div>
+      <div class="menu-item"><img src="https://img.icons8.com/ios-filled/50/classroom.png"/> My Course</div>
+      <div class="menu-item"><img src="https://img.icons8.com/ios-filled/50/settings.png"/> Settings</div>
+    </div>
+    <div>
+      <div class="menu-item">💡 Fitur Pro</div>
+      <div class="menu-item">🔗 ChatGPT AI</div>
+    </div>
+    <div class="chatgpt-box">
+      <strong>ChatGPT</strong>
+      <p>Find more using ChatGPT AI</p>
+      <button>Click Here</button>
+    </div>
+  </aside>
+
+  <main>
+    <div class="course-list">
+      <div class="header-box">
+        <h1>🧠 LexiFlash</h1>
+        <div class="controls">
+          <select><option>Top</option></select>
+          <select><option>Category</option></select>
+          <input type="text" placeholder="Search" />
+        </div>
+      </div>
+      <div class="card-materi" onclick="window.location.href='metabolisme.html'">Metabolisme Sel <span>⋮</span></div>
+      <div class="card-materi">Reproduksi Sel <span>⋮</span></div>
+    </div>
+    <div class="profile-box">
+      <img id="profilePreview" src="th (7).jpg" alt="profile">
+
+      <label>Nama:</label>
+      <input type="text" value="Riski" readonly>
+      <label>Email:</label>
+      <input type="text" value="Riski@gmail.com" readonly>
+      <label>No. HP:</label>
+      <input type="text" value="08111111111" readonly>
+    </div>
+  </main>
+
+  <script>
+    function loadProfileImage(event) {
+      const img = document.getElementById('profilePreview');
+      img.src = URL.createObjectURL(event.target.files[0]);
+      img.onload = () => URL.revokeObjectURL(img.src);
+    }
+  </script>
+</body>
+</html>
