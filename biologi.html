@@ -124,12 +124,19 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      text-decoration: none;
+      color: #000;
     }
 
     .card img {
       width: 100px;
       height: 100px;
       margin: 0 auto 12px;
+    }
+
+    .card:hover {
+      background-color: #7bcfe4;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -154,7 +161,7 @@
 
   <main>
     <div class="header">
-      <h1>🧠 LexiFlash</h1>
+      <h1>🧠 Biologi</h1>
       <div class="controls">
         <select><option>Top</option></select>
         <select><option>Category</option></select>
@@ -163,10 +170,12 @@
     </div>
 
     <div class="cards">
-      <div class="card">
-        <img src="th (1).jpg" alt="Biology" />
-        <div>Biology</div>
-      </div>
+      <a href="biologidetail.html" style="text-decoration: none;">
+        <div class="card">
+          <img src="th (1).jpg" alt="Biology" />
+          <div>Biology</div>
+        </div>
+      </a>
     </div>
   </main>
 </body>
