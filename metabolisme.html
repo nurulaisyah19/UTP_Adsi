@@ -110,6 +110,7 @@
       justify-content: space-between;
       align-items: center;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      position: relative;
     }
 
     .sub-card:hover {
@@ -126,8 +127,8 @@
 
     .dropdown-menu {
       position: absolute;
-      top: 50px;
-      right: 16px;
+      top: 40px;
+      right: 10px;
       background-color: white;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
       border-radius: 12px;
@@ -260,15 +261,24 @@
     </header>
 
     <div class="section">Pengertian Metabolisme <span>⋮</span></div>
-    <div class="sub-card">Ringkasan Metabolisme <span>⋮</span></div>
+
+    <div class="sub-card" id="ringkasanCard">
+      Ringkasan Metabolisme 
+      <span class="menu-icon" onclick="toggleMenu(event, 'dropdownRingkasan')">⋮</span>
+      <div class="dropdown-menu" id="dropdownRingkasan">
+        <div class="dropdown-item" onclick="editMateri()"><img src="https://img.icons8.com/ios/20/pencil--v1.png"/> Edit</div>
+        <div class="dropdown-item" onclick="openPopup('ringkasanCard')"><img src="https://img.icons8.com/ios/20/trash--v1.png"/> Hapus</div>
+      </div>
+    </div>
+
     <div class="sub-card">Latihan <span>⋮</span></div>
 
     <div id="enzimSection">
       <div class="section">
-        Enzim <span class="menu-icon" onclick="toggleMenu(event)">⋮</span>
+        Enzim <span class="menu-icon" onclick="toggleMenu(event, 'dropdownMenu')">⋮</span>
         <div class="dropdown-menu" id="dropdownMenu">
           <div class="dropdown-item"><img src="https://img.icons8.com/ios/20/pencil--v1.png"/> Edit</div>
-          <div class="dropdown-item" onclick="openPopup()"><img src="https://img.icons8.com/ios/20/trash--v1.png"/> Hapus</div>
+          <div class="dropdown-item" onclick="openPopup('enzimSection')"><img src="https://img.icons8.com/ios/20/trash--v1.png"/> Hapus</div>
         </div>
       </div>
       <div class="sub-card">Apa itu Enzim dan Jenisnya? <span>⋮</span></div>
@@ -291,30 +301,39 @@
   </div>
 
   <script>
-    function toggleMenu(event) {
+    let targetToDelete = null;
+
+    function toggleMenu(event, menuId = "dropdownMenu") {
       event.stopPropagation();
-      const menu = document.getElementById("dropdownMenu");
-      const isVisible = menu.style.display === "flex";
       document.querySelectorAll('.dropdown-menu').forEach(m => m.style.display = 'none');
+      const menu = document.getElementById(menuId);
+      const isVisible = menu.style.display === "flex";
       menu.style.display = isVisible ? "none" : "flex";
     }
 
     document.addEventListener("click", function() {
-      document.getElementById("dropdownMenu").style.display = "none";
+      document.querySelectorAll('.dropdown-menu').forEach(m => m.style.display = 'none');
     });
 
-    function openPopup() {
+    function openPopup(id) {
+      targetToDelete = document.getElementById(id);
       document.getElementById("popupOverlay").style.display = "flex";
     }
 
     function closePopup() {
       document.getElementById("popupOverlay").style.display = "none";
+      targetToDelete = null;
     }
 
     function confirmHapus() {
-      const section = document.getElementById("enzimSection");
-      section.remove();
-      closePopup();
+      if (targetToDelete) {
+        targetToDelete.remove();
+        closePopup();
+      }
+    }
+
+    function editMateri() {
+      window.location.href = "materi.html";
     }
   </script>
 </body>
