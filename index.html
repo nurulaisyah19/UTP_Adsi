@@ -154,6 +154,25 @@
       width: 100%;
     }
 
+    .date-list {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .date-item {
+      padding: 10px 14px;
+      background-color: #e0e0e0;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .date-item.active {
+      background-color: #2196f3;
+      color: #fff;
+    }
+
     .quotes {
       display: flex;
       flex-direction: column;
@@ -200,12 +219,10 @@
 
     <div class="main-content">
       <div class="cards">
-        <!-- Card Biology: Now clickable -->
         <a href="biologi.html" class="card">
           <img src="th (1).jpg" alt="Biology" />
           <div>Biology</div>
         </a>
-        <!-- Other cards (can be updated later similarly) -->
         <div class="card"><img src="th.jpg" alt="Mathematics" /><div>Mathematics</div></div>
         <div class="card"><img src="th (2).jpg" alt="English" /><div>English</div></div>
         <div class="card"><img src="th (3).jpg" alt="History" /><div>History</div></div>
@@ -216,8 +233,14 @@
       <div class="calendar-quotes">
         <div class="calendar">
           <h3>📅 Calendar</h3>
-          <p>July</p>
-          <p><strong>Mon 07</strong></p>
+          <div class="date-list">
+            <div class="date-item">06</div>
+            <div class="date-item active">07</div>
+            <div class="date-item">08</div>
+            <div class="date-item">09</div>
+            <div class="date-item">10</div>
+            <div class="date-item">11</div>
+          </div>
         </div>
 
         <div class="quotes">
