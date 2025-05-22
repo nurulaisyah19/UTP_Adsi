@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ringkasan Metabolisme</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      background-color: #e0f7ff;
+    }
+
+    aside {
+      width: 240px;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 16px;
+      height: 100vh;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 13px;
+    }
+
+    .menu-item:hover {
+      background-color: #f1f1f1;
+    }
+
+    .menu-item img {
+      width: 18px;
+      height: 18px;
+    }
+
+    main {
+      flex: 1;
+      padding: 24px;
+      overflow-y: auto;
+    }
+
+    header {
+      background-color: #4dadf7;
+      border-radius: 14px;
+      margin-bottom: 24px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      gap: 10px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+    }
+
+    .controls select, .controls input {
+      padding: 6px 12px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    .content-box {
+      background-color: #9ef0c4;
+      padding: 20px;
+      border-radius: 16px;
+    }
+
+    .content-header {
+      background-color: #66c3ec;
+      color: #0e2c3d;
+      font-weight: bold;
+      font-size: 20px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .content-header button {
+      background-color: #4dadf7;
+      color: white;
+      border: none;
+      padding: 6px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .content-body {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .content-body p {
+      flex: 1;
+      font-size: 16px;
+      line-height: 1.7;
+      font-weight: 500;
+    }
+
+    .content-body img {
+      max-width: 250px;
+      border-radius: 16px;
+    }
+
+    .chatgpt-box {
+      background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      color: #fff;
+      font-size: 12px;
+      margin-top: 12px;
+    }
+
+    .chatgpt-box button {
+      margin-top: 10px;
+      background-color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      color: #007aff;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <div>
+      <div class="menu-item"><img src="https://img.icons8.com/ios-filled/50/user.png"/> sandra.d</div>
+      <div class="menu-item"><img src="https://img.icons8.com/ios-filled/50/home.png"/> Home</div>
+      <div class="menu-item"><img src="https://img.icons8.com/ios-filled/50/classroom.png"/> My Course</div>
+      <div class="menu-item"><img src="https://img.icons8.com/ios-filled/50/settings.png"/> Settings</div>
+    </div>
+    <div>
+      <div class="menu-item">💡 Fitur Pro</div>
+      <div class="menu-item">🔗 ChatGPT AI</div>
+    </div>
+    <div class="chatgpt-box">
+      <strong>ChatGPT</strong>
+      <p>Find more using ChatGPT AI</p>
+      <button>Click Here</button>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <h1>🧠 LexiFlash</h1>
+      <div class="controls">
+        <select><option>Top</option></select>
+        <select><option>Category</option></select>
+        <input type="text" placeholder="Search" />
+      </div>
+    </header>
+
+    <div class="content-box">
+      <div class="content-header">
+        <div>1. Ringkasan Metabolisme</div>
+        <button>Save</button>
+      </div>
+      <div class="content-body">
+       <p style="font-size: 15px; line-height: 1.6;">
+  Metabolisme adalah proses kimia dalam tubuh untuk mengubah makanan dan minuman menjadi energi. Energi ini penting untuk fungsi vital seperti bernapas, berpikir, dan bergerak.
+
+  <br><br>
+  Metabolisme terbagi dua: <strong>katabolisme</strong> (pemecahan molekul untuk menghasilkan energi) dan <strong>anabolisme</strong> (penyusunan molekul untuk pertumbuhan dan perbaikan). Proses ini dibantu enzim dan dikendalikan hormon seperti insulin.
+
+  <br><br>
+  Faktor seperti usia, aktivitas, dan massa otot memengaruhi metabolisme. Menjaga metabolisme yang seimbang penting untuk kesehatan dan mencegah penyakit seperti diabetes.
+</p>
+
+
+        <img src="Metabolisme-Tubuh.jpg">
+      </div>
+    </div>
+  </main>
+</body>
+</html>
